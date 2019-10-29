@@ -1,7 +1,7 @@
 from typing import Tuple
 
 
-class TrieNode(object):
+class AutoCompleteNode(object):
     """
     Our trie node implementation. Very basic. but does the job
     """
@@ -34,7 +34,7 @@ def add(root, word: str):
                 break
         # We did not find it so add a new chlid
         if not found_in_child:
-            new_node = TrieNode(char)
+            new_node = AutoCompleteNode(char)
             node.children.append(new_node)
             # And then point node to the new child
             node = new_node
@@ -73,12 +73,14 @@ def find_prefix(root, prefix: str) -> Tuple[bool, int]:
 
 
 if __name__ == "__main__":
-    root = TrieNode('*')
+    root = AutoCompleteNode('*')
     add(root, "hackathon")
     add(root, 'hack')
+    add(root, 'ham')
 
     print(find_prefix(root, 'hac'))
     print(find_prefix(root, 'hack'))
     print(find_prefix(root, 'hackathon'))
     print(find_prefix(root, 'ha'))
     print(find_prefix(root, 'hammer'))
+    print(find_prefix(root, 'ham'))
