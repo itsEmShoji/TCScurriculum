@@ -8,7 +8,8 @@ import urllib.request
 import re
 
 # preprocessing
-raw_html = urllib.request.urlopen('https://en.wikipedia.org/wiki/Tennis')
+raw_html = urllib.request.urlopen(
+    'https://www.site.uottawa.ca/~lucia/courses/2131-02/A2/trythemsource.txt')
 raw_html = raw_html.read()
 
 article_html = bs.BeautifulSoup(raw_html, 'lxml')
@@ -20,7 +21,8 @@ for para in article_paragraphs:
 
 article_text = article_text.lower()
 
-article_text = re.sub(r'[^A-Za-z. ]', '', article_text)
+article_text = article_text.translate(
+    str.maketrans('', '', string.punctuation))
 
 # create model
 ngrams = {}
