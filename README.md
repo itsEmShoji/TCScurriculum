@@ -1,2 +1,2 @@
-# TCSprojects
-Projects for TCS Curriculum 1.5
+# TCScurriculum
+Projects and Images for TCS Curriculums
