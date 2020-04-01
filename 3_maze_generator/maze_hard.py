@@ -188,8 +188,7 @@ class Maze:
         # TODO: If no neighbors exist, We've reached a dead end: backtrack.
         # TODO: set the current cell to be the next cell on the stack & continue
 
-        # Choose a random neighbouring cell and move to it.
-        direction, next_cell = random.choice(neighbours)
+        # TODO: Choose a random neighbouring cell and move to it.
         current_cell.knock_down_wall(next_cell, direction)
         # append the current cell so you can backtrack appropriately
         cell_stack.append(current_cell)
@@ -260,8 +259,7 @@ class MazeSolver:
                 q.put(neighbor)
                 parents[neighbor] = current_cell
 
-            # If the neighbor happened to be the goal cell, quit and return the backtracked solution
-            if current_cell == self.goal:
+            # TODO: If the current cell happens to be the goal cell, quit and return the backtracked solution
                 return self.backtrack(parents)
 
         # No path to the goal node was found
@@ -273,15 +271,14 @@ class MazeSolver:
         Returns the solution path
         """
 
-        # Starting at the goal node build up the path back to the starting cell
-        current = self.goal
-        path = [current]
+        # TODO:  Starting at the goal node build up the path back to the starting cell
+        # set current to the goal
+        # create a list called path that starts by holding our current
 
-        # While not at the starting cell
-        while parents[current] is not None:
-            # Determine how we got to this cell and walk backward
-            path.append(parents[current])
-            current = parents[current]
+        # TODO: While not at the starting cell & our current cell has parents
+        # Determine how we got to this cell and walk backward
+        # TODO: append the current cell's parents to path
+        # TODO: set current to be the parents of the current cell
         return list(reversed(path))
 
 
